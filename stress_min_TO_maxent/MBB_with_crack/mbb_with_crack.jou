@@ -1,0 +1,34 @@
+#!python
+cubit.cmd('reset')
+
+cubit.cmd('create surface rectangle width 90 height 60 zplane')
+cubit.cmd('move Surface  1 x 45 y 30 z 0 include_merged')
+
+cubit.cmd('create vertex 90 15 0')
+cubit.cmd('create vertex 88 0 0')
+
+cubit.cmd('create curve vertex 4 5')
+cubit.cmd('create curve vertex 5 6')
+cubit.cmd('create curve vertex 6 7')
+cubit.cmd('create surface curve 5 6 7')
+cubit.cmd('subtract surface 2 from surface 1')
+
+cubit.cmd('split curve 1 distance 5 from vertex 1')
+
+
+cubit.cmd('create displacement on curve 11 dof all fix')
+cubit.cmd('create displacement on curve 9  dof all fix')
+
+cubit.cmd('surface all scheme pave')
+cubit.cmd('surface all size 1.5')
+cubit.cmd('mesh surface all')
+
+cubit.cmd('color Surface all lightseagreen')
+cubit.cmd('export abaqus "/Users/zahurullah/Desktop/bbb/MBB_with_crack/abc.inp" nodefile "/Users/zahurullah/Desktop/bbb/MBB_with_crack/nodes.dat" elementfile "/Users/zahurullah/Desktop/bbb/MBB_with_crack/elements.dat" overwrite everything')
+
+
+
+
+
+
+

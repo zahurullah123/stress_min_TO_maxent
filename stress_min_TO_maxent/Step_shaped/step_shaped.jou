@@ -1,0 +1,34 @@
+#!python
+cubit.cmd('reset')
+cubit.cmd('create vertex 0 0 0')
+cubit.cmd('create vertex 50 0 0')
+cubit.cmd('create vertex 50 50 0')
+cubit.cmd('create vertex 100 50 0')
+cubit.cmd('create vertex 100 100 0')
+cubit.cmd('create vertex 150 100 0')
+cubit.cmd('create vertex 150 150 0')
+cubit.cmd('create vertex 50 150 0')
+cubit.cmd('create vertex 50 100 0')
+cubit.cmd('create vertex 0 100 0')
+cubit.cmd('create curve polyline vertex 1 2 3 4 5 6 7 8 9 10')
+cubit.cmd('create curve polyline vertex 10 1')
+
+cubit.cmd('create surface curve 6 7 8 9 10 1 2 3 4 5')
+cubit.cmd('split curve 7 distance 10 from vertex 7')
+
+cubit.cmd('create displacement on curve 1 dof all fix')
+cubit.cmd('create displacement on curve 11  dof all fix')
+
+
+cubit.cmd('surface all scheme pave')
+cubit.cmd('surface all size 1.5')
+cubit.cmd('mesh surface all')
+
+cubit.cmd('color Surface all lightseagreen')
+cubit.cmd('export abaqus "/Users/zahurullah/Desktop/bbb/Step_shaped/abc.inp" nodefile "/Users/zahurullah/Desktop/bbb/Step_shaped/nodes.dat" elementfile "/Users/zahurullah/Desktop/bbb/Step_shaped/elements.dat" overwrite everything')
+
+
+
+
+
+

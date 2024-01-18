@@ -1,0 +1,85 @@
+*HEADING
+cubit(/Users/zahurullah/Desktop/bbb/Step_shaped/abc.inp): 02/01/2022: 23:12:37
+version: 2021.11
+**
+********************************** P A R T S **********************************
+*PART, NAME=Part-Default
+**
+********************************** N O D E S **********************************
+*NODE, NSET=ALLNODES, INPUT=/Users/zahurullah/Desktop/bbb/Step_shaped/nodes.dat
+**
+********************************** E L E M E N T S ****************************
+*ELEMENT, TYPE=S4R, ELSET=EB1, INPUT=/Users/zahurullah/Desktop/bbb/Step_shaped/elements.dat
+**
+********************************** N O D E S E T S **********************************
+*NSET, NSET=NS1
+     152,     202,     203,     204,     205,     206,
+     207,     208,     209,     210,     211,     212,
+     213,     214,     215,     216,     217,     218,
+     219,     220,     221,     222,     223,     224,
+     225,     226,
+*NSET, NSET=NS2
+      27,      52,      53,      54,      55,      56,
+**
+********************************** P R O P E R T I E S ************************
+*SHELL SECTION, ELSET=EB1, SECTION INTEGRATION=SIMPSON, MATERIAL=Default-Steel
+1
+**
+*END PART
+**
+**
+**
+********************************** E N D   P A R T S **********************************
+**
+**
+********************************** A S S E M B L Y ************************************
+**
+*ASSEMBLY, NAME=ASSEMBLY1
+**
+*INSTANCE, NAME=Part-Default_1, PART=Part-Default
+*END INSTANCE
+**
+*END ASSEMBLY
+**
+**
+**
+*MATERIAL, NAME = Default-Steel
+*ELASTIC, TYPE=ISOTROPIC
+206800, 0.29
+*DENSITY
+7e-06
+*CONDUCTIVITY,TYPE=ISO
+0.045
+*SPECIFIC HEAT
+500
+**
+**
+************************************** H I S T O R Y *************************************
+**
+*PREPRINT
+**
+**************************************** S T E P 1 ***************************************
+*STEP,INC=100,NAME=Default Set
+**
+*STATIC
+1, 1, 1e-05, 1
+**
+**
+*BOUNDARY,TYPE=DISPLACEMENT, OP=MOD
+Part-Default_1.NS1, 1, , 0
+Part-Default_1.NS1, 2, , 0
+Part-Default_1.NS1, 3, , 0
+Part-Default_1.NS1, 4, , 0
+Part-Default_1.NS1, 5, , 0
+Part-Default_1.NS1, 6, , 0
+*BOUNDARY,TYPE=DISPLACEMENT, OP=MOD
+Part-Default_1.NS2, 1, , 0
+Part-Default_1.NS2, 2, , 0
+Part-Default_1.NS2, 3, , 0
+Part-Default_1.NS2, 4, , 0
+Part-Default_1.NS2, 5, , 0
+Part-Default_1.NS2, 6, , 0
+**
+**
+**
+*END STEP

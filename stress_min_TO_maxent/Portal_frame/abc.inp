@@ -1,0 +1,96 @@
+*HEADING
+cubit(/Users/zahurullah/Desktop/bbb/Portal_frame/abc.inp): 02/04/2022: 20:12:50
+version: 2021.11
+**
+********************************** P A R T S **********************************
+*PART, NAME=Part-Default
+**
+********************************** N O D E S **********************************
+*NODE, NSET=ALLNODES, INPUT=/Users/zahurullah/Desktop/bbb/Portal_frame/nodes.dat
+**
+********************************** E L E M E N T S ****************************
+*ELEMENT, TYPE=S4R, ELSET=EB1, INPUT=/Users/zahurullah/Desktop/bbb/Portal_frame/elements.dat
+**
+********************************** N O D E S E T S **********************************
+*NSET, NSET=NS1
+       1,       2,       3,       4,       5,       6,
+       7,       8,       9,      10,      11,      12,
+      13,      14,      15,      16,      17,      18,
+      19,      20,      21,      22,      23,      24,
+      25,      26,      27,      28,      29,      30,
+      31,      32,      33,      34,      35,      36,
+      37,      38,      39,      40,      41,
+*NSET, NSET=NS2
+       2,
+*NSET, NSET=NS3
+      82,     158,     159,     160,     161,
+**
+********************************** P R O P E R T I E S ************************
+*SHELL SECTION, ELSET=EB1, SECTION INTEGRATION=SIMPSON, MATERIAL=Default-Steel
+1
+**
+*END PART
+**
+**
+**
+********************************** E N D   P A R T S **********************************
+**
+**
+********************************** A S S E M B L Y ************************************
+**
+*ASSEMBLY, NAME=ASSEMBLY1
+**
+*INSTANCE, NAME=Part-Default_1, PART=Part-Default
+*END INSTANCE
+**
+*END ASSEMBLY
+**
+**
+**
+*MATERIAL, NAME = Default-Steel
+*ELASTIC, TYPE=ISOTROPIC
+206800, 0.29
+*DENSITY
+7e-06
+*CONDUCTIVITY,TYPE=ISO
+0.045
+*SPECIFIC HEAT
+500
+**
+**
+************************************** H I S T O R Y *************************************
+**
+*PREPRINT
+**
+**************************************** S T E P 1 ***************************************
+*STEP,INC=100,NAME=Default Set
+**
+*STATIC
+1, 1, 1e-05, 1
+**
+**
+*BOUNDARY,TYPE=DISPLACEMENT, OP=MOD
+Part-Default_1.NS1, 1, , 0
+Part-Default_1.NS1, 2, , 0
+Part-Default_1.NS1, 3, , 0
+Part-Default_1.NS1, 4, , 0
+Part-Default_1.NS1, 5, , 0
+Part-Default_1.NS1, 6, , 0
+*BOUNDARY,TYPE=DISPLACEMENT, OP=MOD
+Part-Default_1.NS2, 1, , 0
+Part-Default_1.NS2, 2, , 0
+Part-Default_1.NS2, 3, , 0
+Part-Default_1.NS2, 4, , 0
+Part-Default_1.NS2, 5, , 0
+Part-Default_1.NS2, 6, , 0
+*BOUNDARY,TYPE=DISPLACEMENT, OP=MOD
+Part-Default_1.NS3, 1, , 0
+Part-Default_1.NS3, 2, , 0
+Part-Default_1.NS3, 3, , 0
+Part-Default_1.NS3, 4, , 0
+Part-Default_1.NS3, 5, , 0
+Part-Default_1.NS3, 6, , 0
+**
+**
+**
+*END STEP

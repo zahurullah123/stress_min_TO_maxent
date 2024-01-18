@@ -1,0 +1,37 @@
+#!python
+cubit.cmd('reset')
+cubit.cmd('create vertex 0 0 0')
+cubit.cmd('create vertex 5 0 0')
+cubit.cmd('create vertex 60 35 0')
+
+
+cubit.cmd('create vertex 115 0 0')
+cubit.cmd('create vertex 120 0 0')
+cubit.cmd('create vertex 120 60 0')
+cubit.cmd('create vertex 62 60 0')
+cubit.cmd('create vertex 58 60 0')
+cubit.cmd('create vertex 0 60 0')
+
+cubit.cmd('create curve polyline vertex 1 2 3 4 5 6 7 8 9')
+cubit.cmd('create curve polyline vertex 9 1')
+
+cubit.cmd('create surface curve 1 2 3 4 5 6 7 8 9')
+
+cubit.cmd('create displacement on curve 1 dof all fix')
+cubit.cmd('create displacement on curve 4  dof all fix')
+cubit.cmd('create displacement on curve 7 dof all fix')
+
+
+cubit.cmd('surface all scheme pave')
+cubit.cmd('surface all size 1.0')
+cubit.cmd('mesh surface all')
+
+cubit.cmd('color Surface all lightseagreen')
+cubit.cmd('export abaqus "/Users/zahurullah/Desktop/bbb/Portal_frame/abc.inp" nodefile "/Users/zahurullah/Desktop/bbb/Portal_frame/nodes.dat" elementfile "/Users/zahurullah/Desktop/bbb/Portal_frame/elements.dat" overwrite everything')
+
+
+
+
+
+
+
