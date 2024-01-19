@@ -1,0 +1,23 @@
+#!python
+
+cubit.cmd('reset')
+cubit.cmd('create vertex 0 0 0')
+cubit.cmd('create vertex 1 0 0')
+cubit.cmd('create vertex 1 2 0')
+cubit.cmd('create vertex 0 2 0')
+cubit.cmd('create vertex 0 1 0')
+cubit.cmd('create curve polyline vertex 1 2 3 4 5')
+cubit.cmd('create curve polyline vertex 1 5')
+cubit.cmd('create surface curve 1 2 3 4 5  ')
+cubit.cmd('split curve 4  distance 0.1 from vertex 4 ')
+cubit.cmd('create displacement  on curve 5  dof all fix  ')
+cubit.cmd('create displacement  on curve 6  dof all fix  ')
+cubit.cmd('surface 1  scheme pave')
+cubit.cmd('surface 1  size 0.015')
+cubit.cmd('mesh surface 1 ')
+Cubit>export abaqus "D:/PhD/New Project/All problems Cubit domains/crack domain force at left/abc.inp"  nodefile 'D:/PhD/New Project/All problems Cubit domains/crack domain force at left/nodes_cd.dat' elementfile 'D:/PhD/New Project/All problems Cubit domains/crack domain force at left/elements_cd.dat' mesh_only overwrite  everything 
+
+
+
+
+
